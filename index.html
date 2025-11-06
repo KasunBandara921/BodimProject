@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Our Building — Rooms & Facilities</title>
+  <meta name="description" content="See available rooms and facilities at our building. 18 bodim rooms and 4 business rooms available for rent." />
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="brand">
+        <div class="logo">BB</div>
+        <div>
+          <h1>Our Building — Rooms & Facilities</h1>
+          <p class="lead">We have 18 bodim rooms and 4 business rooms. Browse availability, see facilities and contact us to reserve.</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero" aria-labelledby="search-heading">
+      <div class="hero-grid">
+        <div class="controls">
+          <h2 id="search-heading" style="margin:0 0 8px 0">Find a room</h2>
+          <div style="display:flex;gap:8px">
+            <input id="search" type="search" placeholder="Search by name, facility or min capacity" aria-label="Search rooms">
+            <select id="typeFilter" aria-label="Filter by type">
+              <option value="all">All types (Bodim & Business)</option>
+              <option value="bodim">Bodim (living)</option>
+              <option value="business">Business</option>
+              <option value="available">Available only</option>
+            </select>
+            <button id="clearBtn" class="btn ghost" title="Reset filters">Reset</button>
+          </div>
+
+          <div class="filters" style="margin-top:12px">
+            <button class="btn" id="showAvailableBtn">Show available (<span id="availCount">0</span>)</button>
+            <button class="btn ghost" id="contactBtn">Contact / Reserve</button>
+          </div>
+        </div>
+
+        <div class="stats" aria-hidden="false">
+          <div class="stat">
+            <div style="font-size:22px;font-weight:700" id="totalRooms">0</div>
+            <div style="font-size:13px;color:var(--muted)">Total rooms</div>
+          </div>
+          <div class="stat">
+            <div style="font-size:22px;font-weight:700" id="availableRooms">0</div>
+            <div style="font-size:13px;color:var(--muted)">Available now</div>
+          </div>
+          <div class="stat">
+            <div style="font-size:22px;font-weight:700" id="businessRooms">0</div>
+            <div style="font-size:13px;color:var(--muted)">Business rooms</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="rooms-heading" style="margin-top:18px">
+      <h2 id="rooms-heading" style="margin:0 0 8px 0">Rooms</h2>
+      <div id="roomsGrid" class="grid" aria-live="polite"></div>
+      <div id="emptyMsg" class="empty" style="display:none;margin-top:12px">
+        No rooms match your filters. Try clearing filters or contact us for assistance.
+      </div>
+    </section>
+
+    <section style="margin-top:20px">
+      <h3>Facilities</h3>
+      <p class="muted" style="color:var(--muted);margin:6px 0 12px 0">Each room may include any of these facilities. See individual room cards for specifics.</p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <div class="tag">Water</div>
+        <div class="tag">Electricity</div>
+        <div class="tag">Toilet</div>
+        <div class="tag">Kitchen access</div>
+        <div class="tag">Wifi (optional)</div>
+        <div class="tag">Parking</div>
+        <div class="tag">Shared common area</div>
+      </div>
+    </section>
+
+    <footer>
+      <p>Want to reserve or ask questions? Use the form above or contact <strong>+1 (555) 123-4567</strong> / <a href="mailto:info@ourbuilding.example">info@ourbuilding.example</a></p>
+    </footer>
+  </main>
+
+  <!-- modal -->
+  <div id="modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal" role="document">
+      <h3 id="modalTitle">Reserve a room</h3>
+      <p style="color:var(--muted);margin-top:6px">Fill this form and we'll get back to you to confirm availability and next steps.</p>
+      <label for="rName">Full name</label>
+      <input id="rName" type="text" placeholder="Your name">
+
+      <div class="row">
+        <div>
+          <label for="rPhone">Phone</label>
+          <input id="rPhone" type="tel" placeholder="+1 555 123 4567">
+        </div>
+        <div>
+          <label for="rEmail">Email</label>
+          <input id="rEmail" type="email" placeholder="you@example.com">
+        </div>
+      </div>
+
+      <label for="rRoom">Room ID or name (optional)</label>
+      <input id="rRoom" type="text" placeholder="e.g. Bodim 5">
+
+      <label for="rMessage">Message</label>
+      <textarea id="rMessage" rows="4" placeholder="Preferred move-in date, business type, special requests..."></textarea>
+
+      <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:12px">
+        <button id="cancelModal" class="btn ghost">Cancel</button>
+        <button id="submitModal" class="btn">Send request</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
